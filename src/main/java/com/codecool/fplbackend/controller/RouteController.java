@@ -5,12 +5,8 @@ import com.codecool.fplbackend.model.Player;
 import com.codecool.fplbackend.repository.UserRepository;
 import com.codecool.fplbackend.service.FPLApiService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Set;
 
