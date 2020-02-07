@@ -22,7 +22,7 @@ public class User {
     @Column(nullable = false)
     private String username;
 
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    @ManyToMany
     private Set<Player> team;
 
 }
