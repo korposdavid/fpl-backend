@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
@@ -17,9 +16,60 @@ import javax.persistence.Id;
 public class Player {
 
     @Id
-    @GeneratedValue
     private long id;
 
-    private int code;
+    private float chance_of_playing_next_round;
+    private float chance_of_playing_this_round;
+    private float code;
+    private float cost_change_event;
+    private float cost_change_event_fall;
+    private float cost_change_start;
+    private float cost_change_start_fall;
+    private float dreamteam_count;
+    private float element_type;
+    private String ep_next;
+    private String ep_this;
+    private float event_points;
+    private String first_name;
+    private String form;
+    private boolean in_dreamteam;
+    private String news;
+    private String news_added;
+    private float now_cost;
+    private String photo;
+    private String points_per_game;
+    private String second_name;
+    private String selected_by_percent;
+    private boolean special;
+    private String squad_number = null;
+    private String status;
+    private float team;
+    private float team_code;
+    private float total_points;
+    private float transfers_in;
+    private float transfers_in_event;
+    private float transfers_out;
+    private float transfers_out_event;
+    private String value_form;
+    private String value_season;
+    private String web_name;
+    private float minutes;
+    private float goals_scored;
+    private float assists;
+    private float clean_sheets;
+    private float goals_conceded;
+    private float own_goals;
+    private float penalties_saved;
+    private float penalties_missed;
+    private float yellow_cards;
+    private float red_cards;
+    private float saves;
+    private float bonus;
+    private float bps;
+    private String influence;
+    private String creativity;
+    private String threat;
+    private String ict_index;
+
 
 }
