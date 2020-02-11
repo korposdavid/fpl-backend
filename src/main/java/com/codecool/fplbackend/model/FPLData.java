@@ -14,4 +14,6 @@ import java.util.List;
 public class FPLData {
 
     private List<Player> elements;
+
+    private List<Team> teams;
 }
