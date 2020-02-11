@@ -2,6 +2,7 @@ package com.codecool.fplbackend.service;
 
 import com.codecool.fplbackend.model.FPLData;
 import com.codecool.fplbackend.model.Player;
+import com.codecool.fplbackend.model.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,13 @@ public class FPLApiService {
         ResponseEntity<FPLData> responseData = restTemplate.getForEntity(url, FPLData.class);
 
         return Objects.requireNonNull(responseData.getBody()).getElements();
+    }
+
+    public List<Team> fetchTeamData(){
+        String url = "https://fantasy.premierleague.com/api/bootstrap-static/";
+
+        ResponseEntity<FPLData> responseData = restTemplate.getForEntity(url, FPLData.class);
+
+        return Objects.requireNonNull(responseData.getBody()).getTeams();
     }
 }
