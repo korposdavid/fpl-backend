@@ -1,6 +1,7 @@
 package com.codecool.fplbackend;
 
 import com.codecool.fplbackend.model.Player;
+import com.codecool.fplbackend.repository.FixtureRepository;
 import com.codecool.fplbackend.repository.PlayerRepository;
 import com.codecool.fplbackend.repository.TeamRepository;
 import com.codecool.fplbackend.service.FPLApiService;
@@ -24,6 +25,9 @@ public class FplBackendApplication {
     private TeamRepository teamRepository;
 
     @Autowired
+    private FixtureRepository fixtureRepository;
+
+    @Autowired
     private FPLApiService fplApiService;
 
     @Bean
@@ -40,6 +44,7 @@ public class FplBackendApplication {
         return args -> {
             playerRepository.saveAll(fplApiService.fetchPlayerData());
             teamRepository.saveAll(fplApiService.fetchTeamData());
+            fixtureRepository.saveAll(fplApiService.fetchFixtureData());
         };
     }
 }
