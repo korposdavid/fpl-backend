@@ -1,12 +1,10 @@
 package com.codecool.fplbackend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Data
 @NoArgsConstructor
@@ -18,10 +16,12 @@ public class Player {
     @Id
     private long id;
 
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    private Team teamObject;
+
     private float code;
     private float element_type;
-    private String ep_next;
-    private String ep_this;
     private float event_points;
     private String first_name;
     private String form;
@@ -30,11 +30,8 @@ public class Player {
     private String photo;
     private String points_per_game;
     private String second_name;
-    private boolean special;
-    private String squad_number = null;
     private String status;
     private float team;
-    private float team_code;
     private float total_points;
 
     private String value_form;

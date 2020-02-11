@@ -1,12 +1,11 @@
 package com.codecool.fplbackend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +22,4 @@ public class Fixture {
     private int event;
     private float team_h;
     private float team_a;
-    private float team_h_difficulty;
-    private float team_a_difficulty;
 }
