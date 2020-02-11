@@ -18,13 +18,13 @@ public class Team {
 
     public Integer code;
     public String name;
-    public String shortName;
+    public String short_name;
     public Integer strength;
 
-    public Integer strengthOverallHome;
-    public Integer strengthOverallAway;
-    public Integer strengthAttackHome;
-    public Integer strengthAttackAway;
-    public Integer strengthDefenceHome;
-    public Integer strengthDefenceAway;
+    public Integer strength_overall_home;
+    public Integer strength_overall_away;
+    public Integer strength_attack_home;
+    public Integer strength_attack_away;
+    public Integer strength_defence_home;
+    public Integer strength_defence_away;
 }

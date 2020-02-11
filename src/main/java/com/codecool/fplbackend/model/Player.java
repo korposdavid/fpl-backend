@@ -57,5 +57,4 @@ public class Player {
     private String creativity;
     private String threat;
     private String ict_index;
-
 }
