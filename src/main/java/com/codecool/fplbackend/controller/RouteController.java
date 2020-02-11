@@ -7,6 +7,8 @@ import com.codecool.fplbackend.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @CrossOrigin
@@ -20,6 +22,11 @@ public class RouteController {
     @GetMapping("/player/{id}")
     public Player getPlayer(@PathVariable("id") Long id){
         return playerRepository.getOne(id);
+    }
+
+    @GetMapping("players/{ids}")
+    public List<Player> getPlayers(@PathVariable("ids") List<Long> ids) {
+        return playerRepository.findAllById(ids);
     }
 
     @GetMapping("/team/{id}")
