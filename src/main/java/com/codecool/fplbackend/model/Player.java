@@ -1,5 +1,6 @@
 package com.codecool.fplbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Builder
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Player {
 
     @Id
@@ -31,7 +33,7 @@ public class Player {
     private String points_per_game;
     private String second_name;
     private String status;
-    private float team;
+    private long team;
     private float total_points;
 
     private String value_form;
