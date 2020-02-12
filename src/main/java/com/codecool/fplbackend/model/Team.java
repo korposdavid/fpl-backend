@@ -1,15 +1,13 @@
 package com.codecool.fplbackend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -36,6 +34,7 @@ public class Team {
 
     @OneToMany
     @EqualsAndHashCode.Exclude
-    private Set<Player> players;
+    @JsonBackReference
+    private Set<Player> players = new HashSet<>();
 
 }

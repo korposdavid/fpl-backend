@@ -20,7 +20,7 @@ public class DataManager {
 
     public Player getPlayer(Long id) {
         Player result = playerRepository.getOne(id);
-        setPlayerTeam(result);
+        connectPlayerWithTeam(result);
         return result;
     }
 
@@ -28,7 +28,7 @@ public class DataManager {
         List<Player> result = playerRepository.findAllById(ids);
         for (Player player: result
              ) {
-            setPlayerTeam(player);
+            connectPlayerWithTeam(player);
         }
         return result;
     }
@@ -37,9 +37,10 @@ public class DataManager {
         return teamRepository.getOne(id);
     }
 
-    private void setPlayerTeam(Player player) {
+    private void connectPlayerWithTeam(Player player) {
         if (player.getTeamObject() == null) {
             Team team = getTeam(player.getTeam());
+            team.getPlayers().add(player);
             player.setTeamObject(team);
             playerRepository.saveAndFlush(player);
         }
