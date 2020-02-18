@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:3000"}, allowCredentials = "true")
 public class RouteController {
     @Autowired
     private DataManager dataManager;
