@@ -1,25 +1,23 @@
 package com.codecool.fplbackend.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 public class User {
 
-    @Generated
+    @GeneratedValue
     @Id
     private Long id;
 
-    private String name;
     private String email;
 
 }
