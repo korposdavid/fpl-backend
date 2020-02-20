@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DataManager {
+public class FootballDataManager {
 
     @Autowired
     private PlayerRepository playerRepository;
