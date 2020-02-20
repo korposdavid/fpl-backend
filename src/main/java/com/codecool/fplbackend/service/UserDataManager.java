@@ -13,10 +13,10 @@ public class UserDataManager {
     @Autowired
     private UserRepository userRepository;
 
-    public User getUserByEmail(String email){
-        Optional<User> user = userRepository.findUserByEmail(email);
+    public User getUserByGithubId(Integer githubId){
+        Optional<User> user = userRepository.findUserByGithubId(githubId);
         if (!user.isPresent()) {
-            User newUser = User.builder().email(email).build();
+            User newUser = User.builder().githubId(githubId).build();
             userRepository.saveAndFlush(newUser);
             return newUser;
         } else {

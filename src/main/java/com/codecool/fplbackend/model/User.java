@@ -20,8 +20,9 @@ public class User {
     @Id
     private Long id;
 
-    private String email;
+    private Integer githubId;
 
     @ManyToMany
+    @EqualsAndHashCode.Exclude
     private Set<Player> squad = new HashSet<>();
 }

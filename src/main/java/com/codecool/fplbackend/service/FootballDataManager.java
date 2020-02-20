@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DataManager {
+public class FootballDataManager {
 
     @Autowired
     private PlayerRepository playerRepository;
@@ -25,19 +25,18 @@ public class DataManager {
     }
 
     public List<Player> getPlayers(List<Long> ids) {
-        List<Player> result = playerRepository.findAllById(ids);
-        for (Player player: result
-             ) {
-            connectPlayerWithTeam(player);
-        }
-        return result;
+        return playerRepository.findAllById(ids);
+    }
+
+    public List<Player> getPlayersByNamePart(String namePart){
+        return playerRepository.getTop10ByFullNameIsContainingIgnoreCase(namePart);
     }
 
     public Team getTeam(Long id) {
         return teamRepository.getOne(id);
     }
 
-    private void connectPlayerWithTeam(Player player) {
+    public void connectPlayerWithTeam(Player player) {
         if (player.getTeamObject() == null) {
             Team team = getTeam(player.getTeam());
             team.getPlayers().add(player);

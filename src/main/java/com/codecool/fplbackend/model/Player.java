@@ -22,6 +22,8 @@ public class Player {
     @EqualsAndHashCode.Exclude
     private Team teamObject;
 
+    private String fullName;
+
     private float code;
     private float element_type;
     private float event_points;
