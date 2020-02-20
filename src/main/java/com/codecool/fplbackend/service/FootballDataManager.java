@@ -33,6 +33,10 @@ public class FootballDataManager {
         return result;
     }
 
+    public List<Player> getPlayersByNamePart(String namePart){
+        return playerRepository.getAllByFullNameContains(namePart);
+    }
+
     public Team getTeam(Long id) {
         return teamRepository.getOne(id);
     }
