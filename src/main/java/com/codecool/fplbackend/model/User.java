@@ -21,7 +21,7 @@ public class User {
     @Id
     private Long id;
 
-    private Long githubId;
+    private Integer githubId;
 
     @ManyToMany
     @EqualsAndHashCode.Exclude

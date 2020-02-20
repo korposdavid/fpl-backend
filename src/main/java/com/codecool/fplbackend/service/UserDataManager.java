@@ -13,7 +13,7 @@ public class UserDataManager {
     @Autowired
     private UserRepository userRepository;
 
-    public User getUserByGithubId(Long githubId){
+    public User getUserByGithubId(Integer githubId){
         Optional<User> user = userRepository.findUserByGithubId(githubId);
         if (!user.isPresent()) {
             User newUser = User.builder().githubId(githubId).build();
