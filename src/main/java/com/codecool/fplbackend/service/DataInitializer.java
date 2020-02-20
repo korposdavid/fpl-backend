@@ -37,15 +37,18 @@ public class DataInitializer {
     private UserRepository userRepository;
 
     public void initialize() {
-        initializePlayers();
         teamRepository.saveAll(fplApiService.fetchTeamData());
         fixtureRepository.saveAll(fplApiService.fetchFixtureData());
+        initializePlayers();
         initInitialUser();
     }
 
     private void initializePlayers() {
         List<Player> players = fplApiService.fetchPlayerData();
-        players.forEach(player -> player.setFullName(player.getFirst_name().concat(player.getSecond_name())));
+        players.forEach(player -> {
+            player.setFullName(player.getFirst_name().concat(" ").concat(player.getSecond_name()));
+            footballDataManager.connectPlayerWithTeam(player);
+        });
         playerRepository.saveAll(players);
     }
 
