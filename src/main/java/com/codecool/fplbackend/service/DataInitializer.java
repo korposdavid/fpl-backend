@@ -53,7 +53,7 @@ public class DataInitializer {
     }
 
     private void initInitialUser() {
-        List<Long> ids = List.of(47L, 181L, 65L, 308L,291L,191L,215L,342L,150L,313L,187L,93L,468L,164L,271L);
+        List<Integer> ids = List.of(47, 181, 65, 308,291,191,215,342,150,313,187,93,468,164,271);
         Set<Player> squad = Sets.newHashSet(footballDataManager.getPlayers(ids));
 
         User user = User.builder().githubId(48950847).squad(squad).build();

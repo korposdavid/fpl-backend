@@ -23,8 +23,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("", HttpStatus.OK);
         } else {
-            Integer githubId = user.getAttribute("id");
-            User loggedInUser = userDataManager.getUserByGithubId(githubId);
+            User loggedInUser = userDataManager.getUserForOAuthUser(user);
             return ResponseEntity.ok().body(loggedInUser);
         }
     }

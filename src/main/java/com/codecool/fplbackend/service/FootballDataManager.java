@@ -7,6 +7,7 @@ import com.codecool.fplbackend.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,8 +25,13 @@ public class FootballDataManager {
         return result;
     }
 
-    public List<Player> getPlayers(List<Long> ids) {
-        return playerRepository.findAllById(ids);
+    public List<Player> getPlayers(List<Integer> ids) {
+        List<Long> idsToFind = new ArrayList<>();
+        for (Integer id: ids
+             ) {
+            idsToFind.add(Long.valueOf(id));
+        }
+        return playerRepository.findAllById(idsToFind);
     }
 
     public List<Player> getPlayersByNamePart(String namePart){
