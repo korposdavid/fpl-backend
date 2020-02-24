@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
-    List<Player> getTop10ByFullNameIsContainingIgnoreCase(String name);
+    List<Player> getTop10ByFullNameIsContainingIgnoreCaseOrderByFormDesc(String name);
 }

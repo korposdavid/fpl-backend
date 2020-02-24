@@ -35,7 +35,7 @@ public class FootballDataManager {
     }
 
     public List<Player> getPlayersByNamePart(String namePart){
-        return playerRepository.getTop10ByFullNameIsContainingIgnoreCase(namePart);
+        return playerRepository.getTop10ByFullNameIsContainingIgnoreCaseOrderByFormDesc(namePart);
     }
 
     public Team getTeam(Long id) {
