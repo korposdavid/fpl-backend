@@ -12,7 +12,6 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"}, allowedHeaders = {"*"},  allowCredentials = "true", methods = {RequestMethod.POST, RequestMethod.OPTIONS, RequestMethod.GET})
@@ -43,7 +42,7 @@ public class UserController {
             userDataManager.saveSquad(playerIds.getPlayers(), userDataManager.getUserForOAuthUser(user));
             return new ResponseEntity<>("Squad saved successfully", HttpStatus.OK);
         } catch (InvalidSquadException e) {
-            return ResponseEntity.badRequest().body(e);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 }
